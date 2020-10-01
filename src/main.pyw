@@ -1,17 +1,12 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import Menu
-import time
 
 # Creates window and defines properties
 root = Tk()
 root.title("Python Tomato Timer v0.1")
 root.geometry("500x300")
 root.config(background="black")
-
-#Button Functions go here
-##EXAMPLE: def clicked():
-##   print("click!")
 
 #Countdown timer and button functions
 
@@ -22,7 +17,7 @@ time_label.config(font=("Courier", 50, "bold"))
 time_label.config(background="black", foreground="white")
 
 decrement_timer = True
-initial_time = 10
+initial_time = 1500
 
 def main_timer():
     global initial_time
@@ -35,10 +30,12 @@ def main_timer():
     time_label.configure(text=clock)
     initial_time = initial_time - 1
     root.after(1000, main_timer)    
+
 def start_timer():   
     global decrement_timer
-    decrement_timer = True
-    main_timer()
+    if decrement_timer == False:
+        decrement_timer = True
+        main_timer()
 
 def stop_timer():
     global decrement_timer
@@ -50,7 +47,7 @@ def reset_timer():
     global initial_time
     initial_time = 1500
     global clock
-    clock = "25:00"
+    time_label.configure(text=clock)
 
 # Buttons here
 start = Button(root, text="Start", bg="grey", fg="white", command=start_timer)
@@ -67,6 +64,5 @@ reset = Button(root, text="Reset", bg="grey", fg="white", command=reset_timer)
 reset.grid(column=6, row=2)
 reset.config(font=("Courier", 34))
 reset.config(background = "#a8b548", foreground = "white")
-
 
 root.mainloop()

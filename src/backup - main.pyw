@@ -33,8 +33,9 @@ def main_timer():
 
 def start_timer():   
     global decrement_timer
-    decrement_timer = True
-    main_timer()
+    if decrement_timer == False:
+        decrement_timer = True
+        main_timer()
 
 def stop_timer():
     global decrement_timer

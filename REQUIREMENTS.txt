@@ -1,0 +1,2 @@
+- Made of Python 3 and should run using all 3.x versions
+- No additional packages outside the standard library were used.
